@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<JUCERPROJECT id="OQ9ivk" name="additiveSynth" projectType="audioplug" version="1.0.0"
+              bundleIdentifier="com.goloch.additiveSynth" buildVST="1" buildRTAS="0"
+              buildAU="1" pluginName="additiveSynth" pluginDesc="additiveSynth"
+              pluginManufacturer="goloch" pluginManufacturerCode="Manu" pluginCode="Plug"
+              pluginChannelConfigs="{1, 1}, {2, 2}" pluginIsSynth="1" pluginWantsMidiIn="1"
+              pluginProducesMidiOut="0" pluginSilenceInIsSilenceOut="0" pluginTailLength="0"
+              pluginEditorRequiresKeys="0" pluginAUExportPrefix="additiveSynthAU"
+              pluginAUViewClass="additiveSynthAU_V1" pluginRTASCategory=""
+              jucerVersion="3.0.0" companyName="goloch" defines="__LITTLE_ENDIAN__ _USE_MATH_DEFINES">
+  <EXPORTFORMATS>
+    <VS2010 targetFolder="Builds/VisualStudio2010" libraryType="1" juceFolder="c:\SDKs\juce"
+            vstFolder="c:\SDKs\vstsdk2.4">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
+                       isDebug="1" optimisation="1" targetName="additiveSynth" headerPath="c:\SDKs\stk-4.4.3"/>
+        <CONFIGURATION name="Release" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
+                       isDebug="0" optimisation="2" targetName="additiveSynth" headerPath="c:\SDKs\stk-4.4.3"/>
+      </CONFIGURATIONS>
+    </VS2010>
+    <XCODE_MAC targetFolder="Builds/MacOSX" objCExtraSuffix="uPfUKm" juceFolder="~/SDKs/juce/modules"
+               vstFolder="~/SDKs/vstsdk2.4" extraDefs="__MAC_OS_CORE__">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="additiveSynth"
+                       osxSDK="default" osxCompatibility="default" osxArchitecture="default"
+                       headerPath="~/SDKs/stk-4.4.3"/>
+        <CONFIGURATION name="Release" isDebug="0" optimisation="2" targetName="additiveSynth"
+                       osxSDK="default" osxCompatibility="default" osxArchitecture="default"
+                       headerPath="~/SDKs/stk-4.4.3"/>
+      </CONFIGURATIONS>
+    </XCODE_MAC>
+  </EXPORTFORMATS>
+  <MAINGROUP id="wNGKfw" name="additiveSynth">
+    <GROUP id="{5F630391-E1BD-25F7-5176-B0F874709E51}" name="Source">
+      <FILE id="NdhCRn" name="PluginProcessor.cpp" compile="1" resource="0"
+            file="Source/PluginProcessor.cpp"/>
+      <FILE id="dyiBOu" name="PluginProcessor.h" compile="0" resource="0"
+            file="Source/PluginProcessor.h"/>
+      <FILE id="ErUMbq" name="PluginEditor.cpp" compile="1" resource="0"
+            file="Source/PluginEditor.cpp"/>
+      <FILE id="AnaCKG" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
+    </GROUP>
+  </MAINGROUP>
+  <MODULES>
+    <MODULE id="juce_core" showAllCode="1" useLocalCopy="1"/>
+    <MODULE id="juce_events" showAllCode="1" useLocalCopy="1"/>
+    <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="1"/>
+    <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="1"/>
+    <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="1"/>
+    <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="1"/>
+    <MODULE id="juce_gui_audio" showAllCode="1" useLocalCopy="1"/>
+    <MODULE id="juce_cryptography" showAllCode="1" useLocalCopy="1"/>
+    <MODULE id="juce_video" showAllCode="1" useLocalCopy="1"/>
+    <MODULE id="juce_opengl" showAllCode="1" useLocalCopy="1"/>
+    <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="1"/>
+    <MODULE id="juce_audio_devices" showAllCode="1" useLocalCopy="1"/>
+    <MODULE id="juce_audio_formats" showAllCode="1" useLocalCopy="1"/>
+    <MODULE id="juce_audio_processors" showAllCode="1" useLocalCopy="1"/>
+    <MODULE id="juce_audio_plugin_client" showAllCode="1" useLocalCopy="1"/>
+    <MODULE id="juce_audio_utils" showAllCode="1" useLocalCopy="1"/>
+  </MODULES>
+  <JUCEOPTIONS JUCE_QUICKTIME="disabled"/>
+</JUCERPROJECT>

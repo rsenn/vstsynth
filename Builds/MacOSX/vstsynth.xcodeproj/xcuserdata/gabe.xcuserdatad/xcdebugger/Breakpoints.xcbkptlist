@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "1"
+   version = "1.0">
+   <FileBreakpoints>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "0"
+         filePath = "/Users/gabe/Dropbox/Rutgers/Capstone/Code/Juce Projects/additiveSynth/JuceLibraryCode/modules/juce_audio_basics/synthesisers/juce_Synthesiser.cpp"
+         timestampString = "356847914.767482"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "275"
+         endingLineNumber = "275"
+         landmarkName = "Synthesiser::stopVoice (SynthesiserVoice* voice, const bool allowTailOff)"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "0"
+         filePath = "/Users/gabe/Dropbox/Rutgers/Capstone/Code/Juce Projects/additiveSynth/Source/additiveSynth.cpp"
+         timestampString = "356858103.112464"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "103"
+         endingLineNumber = "103"
+         landmarkName = "additiveSynthVoice::stopNote (const bool allowTailOff)"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "0"
+         filePath = "/Users/gabe/Dropbox/Rutgers/Capstone/Code/Juce Projects/additiveSynth/Source/additiveSynth.cpp"
+         timestampString = "356858394.90296"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "105"
+         endingLineNumber = "105"
+         landmarkName = "additiveSynthVoice::stopNote (const bool allowTailOff)"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "0"
+         filePath = "/Users/gabe/Dropbox/Rutgers/Capstone/Code/Juce Projects/additiveSynth/Source/PluginProcessor.cpp"
+         timestampString = "356885886.460749"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "328"
+         endingLineNumber = "328">
+      </FileBreakpoint>
+   </FileBreakpoints>
+</Bucket>
