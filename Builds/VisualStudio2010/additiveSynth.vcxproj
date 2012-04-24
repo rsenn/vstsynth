@@ -12,6 +12,7 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{2B077EAB-D4F6-D095-4EC0-F25555B6C2E4}</ProjectGuid>
+    <ProjectName>vstSynth</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -35,11 +36,11 @@
     <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\Debug\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Users\gabe\Documents\Visual Studio 2010\Projects\Juce Projects\additiveSynth\Debug\</IntDir>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">additiveSynth</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">vstSynth</TargetName>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</GenerateManifest>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\Release\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\Release\</IntDir>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">additiveSynth</TargetName>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Users\gabe\Documents\Visual Studio 2010\Projects\Juce Projects\additiveSynth\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">vstSynth</TargetName>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</GenerateManifest>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -108,7 +109,7 @@
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ResourceCompile>
     <Link>
-      <OutputFile>.\Release\additiveSynth.dll</OutputFile>
+      <OutputFile>C:\Users\gabe\Documents\My Dropbox\Rutgers\Capstone\Code\vstsynth\Plugins\vstSynth.dll</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <GenerateDebugInformation>false</GenerateDebugInformation>
@@ -137,11 +138,6 @@
     <ClCompile Include="..\..\..\..\..\..\..\..\..\..\..\SDKs\stk-4.4.3\src\OnePole.cpp" />
     <ClCompile Include="..\..\..\..\..\..\..\..\..\..\..\SDKs\stk-4.4.3\src\SineWave.cpp" />
     <ClCompile Include="..\..\..\..\..\..\..\..\..\..\..\SDKs\stk-4.4.3\src\Stk.cpp" />
-    <ClCompile Include="..\..\Source\additiveSynth.cpp" />
-    <ClCompile Include="..\..\Source\additiveSynthFilter.cpp" />
-    <ClCompile Include="..\..\Source\additiveSynthOscillator.cpp" />
-    <ClCompile Include="..\..\Source\PluginProcessor.cpp" />
-    <ClCompile Include="..\..\Source\PluginEditor.cpp" />
     <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_basics\buffers\juce_AudioDataConverters.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
@@ -1216,6 +1212,11 @@
     </ClCompile>
     <ClCompile Include="..\..\JuceLibraryCode\modules\juce_video\juce_video.cpp" />
     <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_plugin_client\VST\juce_VST_Wrapper.cpp" />
+    <ClCompile Include="..\..\Source\vstSynth.cpp" />
+    <ClCompile Include="..\..\Source\vstSynthEditor.cpp" />
+    <ClCompile Include="..\..\Source\vstSynthFilter.cpp" />
+    <ClCompile Include="..\..\Source\vstSynthOscillator.cpp" />
+    <ClCompile Include="..\..\Source\vstSynthProcessor.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\..\..\..\..\..\..\..\SDKs\stk-4.4.3\include\ADSR.h" />
@@ -1233,11 +1234,6 @@
     <ClInclude Include="..\..\..\..\..\..\..\..\..\..\..\SDKs\stk-4.4.3\include\OnePole.h" />
     <ClInclude Include="..\..\..\..\..\..\..\..\..\..\..\SDKs\stk-4.4.3\include\SineWave.h" />
     <ClInclude Include="..\..\..\..\..\..\..\..\..\..\..\SDKs\stk-4.4.3\include\Stk.h" />
-    <ClInclude Include="..\..\Source\additiveSynth.h" />
-    <ClInclude Include="..\..\Source\additiveSynthFilter.h" />
-    <ClInclude Include="..\..\Source\additiveSynthOscillator.h" />
-    <ClInclude Include="..\..\Source\PluginProcessor.h" />
-    <ClInclude Include="..\..\Source\PluginEditor.h" />
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_basics\buffers\juce_AudioDataConverters.h" />
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_basics\buffers\juce_AudioSampleBuffer.h" />
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_basics\midi\juce_MidiBuffer.h" />
@@ -1660,6 +1656,11 @@
     <ClInclude Include="..\..\JuceLibraryCode\AppConfig.h" />
     <ClInclude Include="..\..\JuceLibraryCode\JuceHeader.h" />
     <ClInclude Include="..\..\Source\StkIncludes.h" />
+    <ClInclude Include="..\..\Source\vstSynth.h" />
+    <ClInclude Include="..\..\Source\vstSynthEditor.h" />
+    <ClInclude Include="..\..\Source\vstSynthFilter.h" />
+    <ClInclude Include="..\..\Source\vstSynthOscillator.h" />
+    <ClInclude Include="..\..\Source\vstSynthProcessor.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include=".\resources.rc" />

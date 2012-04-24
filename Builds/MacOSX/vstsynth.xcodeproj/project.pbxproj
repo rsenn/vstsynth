@@ -9,15 +9,15 @@
 /* Begin PBXBuildFile section */
 		003104D215220859007E52B4 /* vstSynth.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 003104D115220859007E52B4 /* vstSynth.cpp */; };
 		003BC0F31530CFC3006DEEBB /* vstSynthOscillator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 003BC0F21530CFC3006DEEBB /* vstSynthOscillator.cpp */; };
-		006065351524E97200750D65 /* Blit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 006065301524E97100750D65 /* Blit.cpp */; };
-		006065361524E97200750D65 /* BlitSaw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 006065311524E97100750D65 /* BlitSaw.cpp */; };
-		006065371524E97200750D65 /* BlitSquare.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 006065321524E97100750D65 /* BlitSquare.cpp */; };
-		006065381524E97200750D65 /* SineWave.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 006065331524E97100750D65 /* SineWave.cpp */; };
-		006065391524E97200750D65 /* Stk.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 006065341524E97100750D65 /* Stk.cpp */; };
-		0082C6D11545A093004ED9BA /* Modulate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0082C6D01545A093004ED9BA /* Modulate.cpp */; };
-		0082C6D31545A0B9004ED9BA /* OnePole.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0082C6D21545A0B9004ED9BA /* OnePole.cpp */; };
-		008E9A4C152773E9007B1C66 /* ADSR.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 008E9A48152773E9007B1C66 /* ADSR.cpp */; };
-		008E9A4F152773E9007B1C66 /* Noise.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 008E9A4B152773E9007B1C66 /* Noise.cpp */; };
+		007F6F481546EB9C00E9325D /* ADSR.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 007F6F3F1546EB9C00E9325D /* ADSR.cpp */; };
+		007F6F491546EB9C00E9325D /* Blit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 007F6F401546EB9C00E9325D /* Blit.cpp */; };
+		007F6F4A1546EB9C00E9325D /* BlitSaw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 007F6F411546EB9C00E9325D /* BlitSaw.cpp */; };
+		007F6F4B1546EB9C00E9325D /* BlitSquare.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 007F6F421546EB9C00E9325D /* BlitSquare.cpp */; };
+		007F6F4C1546EB9C00E9325D /* Modulate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 007F6F431546EB9C00E9325D /* Modulate.cpp */; };
+		007F6F4D1546EB9C00E9325D /* Noise.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 007F6F441546EB9C00E9325D /* Noise.cpp */; };
+		007F6F4E1546EB9C00E9325D /* OnePole.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 007F6F451546EB9C00E9325D /* OnePole.cpp */; };
+		007F6F4F1546EB9C00E9325D /* SineWave.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 007F6F461546EB9C00E9325D /* SineWave.cpp */; };
+		007F6F501546EB9C00E9325D /* Stk.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 007F6F471546EB9C00E9325D /* Stk.cpp */; };
 		00906829153A99990014C723 /* vstSynthFilter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 00906827153A99990014C723 /* vstSynthFilter.cpp */; };
 		0186DE837B00EDE6F5DF8EB6 /* ComponentBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A30E541D5E0DDD6D2BF2B33 /* ComponentBase.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
 		0E0D626072EBC3CA24889546 /* CarbonEventHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E120ECB1134733AB34B42D8F /* CarbonEventHandler.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
@@ -83,33 +83,33 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		002D6325153E501700CA15F7 /* Modulate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Modulate.h; path = "../../../../../../../../SDKs/stk-4.4.3/include/Modulate.h"; sourceTree = "<group>"; };
 		002F02FA1528E44200A11DB8 /* StkIncludes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StkIncludes.h; path = ../../Source/StkIncludes.h; sourceTree = "<group>"; };
 		003104D115220859007E52B4 /* vstSynth.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = vstSynth.cpp; path = ../../Source/vstSynth.cpp; sourceTree = "<group>"; };
-		003104D41522086E007E52B4 /* vstSynth.h */ = {isa = PBXFileReference; fileEncoding = 4; name = vstSynth.h; path = ../../Source/vstSynth.h; sourceTree = "<group>"; };
-		003BC0EF1530CED7006DEEBB /* vstSynthOscillator.h */ = {isa = PBXFileReference; fileEncoding = 4; name = vstSynthOscillator.h; path = ../../Source/vstSynthOscillator.h; sourceTree = "<group>"; };
+		003104D41522086E007E52B4 /* vstSynth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = vstSynth.h; path = ../../Source/vstSynth.h; sourceTree = "<group>"; };
+		003BC0EF1530CED7006DEEBB /* vstSynthOscillator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = vstSynthOscillator.h; path = ../../Source/vstSynthOscillator.h; sourceTree = "<group>"; };
 		003BC0F21530CFC3006DEEBB /* vstSynthOscillator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = vstSynthOscillator.cpp; path = ../../Source/vstSynthOscillator.cpp; sourceTree = "<group>"; };
-		0060652A1524E95B00750D65 /* Blit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Blit.h; path = "../../../../../../../../SDKs/stk-4.4.3/include/Blit.h"; sourceTree = "<group>"; };
-		0060652B1524E95B00750D65 /* BlitSaw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BlitSaw.h; path = "../../../../../../../../SDKs/stk-4.4.3/include/BlitSaw.h"; sourceTree = "<group>"; };
-		0060652C1524E95B00750D65 /* BlitSquare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BlitSquare.h; path = "../../../../../../../../SDKs/stk-4.4.3/include/BlitSquare.h"; sourceTree = "<group>"; };
-		0060652D1524E95B00750D65 /* Generator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Generator.h; path = "../../../../../../../../SDKs/stk-4.4.3/include/Generator.h"; sourceTree = "<group>"; };
-		0060652E1524E95B00750D65 /* SineWave.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SineWave.h; path = "../../../../../../../../SDKs/stk-4.4.3/include/SineWave.h"; sourceTree = "<group>"; };
-		0060652F1524E95B00750D65 /* Stk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Stk.h; path = "../../../../../../../../SDKs/stk-4.4.3/include/Stk.h"; sourceTree = "<group>"; };
-		006065301524E97100750D65 /* Blit.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Blit.cpp; path = "../../../../../../../../SDKs/stk-4.4.3/src/Blit.cpp"; sourceTree = "<group>"; };
-		006065311524E97100750D65 /* BlitSaw.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BlitSaw.cpp; path = "../../../../../../../../SDKs/stk-4.4.3/src/BlitSaw.cpp"; sourceTree = "<group>"; };
-		006065321524E97100750D65 /* BlitSquare.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BlitSquare.cpp; path = "../../../../../../../../SDKs/stk-4.4.3/src/BlitSquare.cpp"; sourceTree = "<group>"; };
-		006065331524E97100750D65 /* SineWave.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SineWave.cpp; path = "../../../../../../../../SDKs/stk-4.4.3/src/SineWave.cpp"; sourceTree = "<group>"; };
-		006065341524E97100750D65 /* Stk.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Stk.cpp; path = "../../../../../../../../SDKs/stk-4.4.3/src/Stk.cpp"; sourceTree = "<group>"; };
-		0082C6D01545A093004ED9BA /* Modulate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Modulate.cpp; path = "../../../../../../../../SDKs/stk-4.4.3/src/Modulate.cpp"; sourceTree = "<group>"; };
-		0082C6D21545A0B9004ED9BA /* OnePole.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = OnePole.cpp; path = "../../../../../../../../SDKs/stk-4.4.3/src/OnePole.cpp"; sourceTree = "<group>"; };
-		0082C6D41545A0C5004ED9BA /* Filter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Filter.h; path = "../../../../../../../../SDKs/stk-4.4.3/include/Filter.h"; sourceTree = "<group>"; };
-		0082C6D51545A0C5004ED9BA /* OnePole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OnePole.h; path = "../../../../../../../../SDKs/stk-4.4.3/include/OnePole.h"; sourceTree = "<group>"; };
-		008E9A42152772C0007B1C66 /* ADSR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADSR.h; path = "../../../../../../../../SDKs/stk-4.4.3/include/ADSR.h"; sourceTree = "<group>"; };
-		008E9A451527734B007B1C66 /* Noise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Noise.h; path = "../../../../../../../../SDKs/stk-4.4.3/include/Noise.h"; sourceTree = "<group>"; };
-		008E9A48152773E9007B1C66 /* ADSR.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ADSR.cpp; path = "../../../../../../../../SDKs/stk-4.4.3/src/ADSR.cpp"; sourceTree = "<group>"; };
-		008E9A4B152773E9007B1C66 /* Noise.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Noise.cpp; path = "../../../../../../../../SDKs/stk-4.4.3/src/Noise.cpp"; sourceTree = "<group>"; };
+		007F6F361546EB6B00E9325D /* ADSR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADSR.h; path = "../../../../../../../SDKs/stk-4.4.3/include/ADSR.h"; sourceTree = "<group>"; };
+		007F6F371546EB6B00E9325D /* Blit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Blit.h; path = "../../../../../../../SDKs/stk-4.4.3/include/Blit.h"; sourceTree = "<group>"; };
+		007F6F381546EB6B00E9325D /* BlitSaw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BlitSaw.h; path = "../../../../../../../SDKs/stk-4.4.3/include/BlitSaw.h"; sourceTree = "<group>"; };
+		007F6F391546EB6B00E9325D /* BlitSquare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BlitSquare.h; path = "../../../../../../../SDKs/stk-4.4.3/include/BlitSquare.h"; sourceTree = "<group>"; };
+		007F6F3A1546EB6B00E9325D /* Modulate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Modulate.h; path = "../../../../../../../SDKs/stk-4.4.3/include/Modulate.h"; sourceTree = "<group>"; };
+		007F6F3B1546EB7F00E9325D /* Noise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Noise.h; path = "../../../../../../../SDKs/stk-4.4.3/include/Noise.h"; sourceTree = "<group>"; };
+		007F6F3C1546EB7F00E9325D /* OnePole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OnePole.h; path = "../../../../../../../SDKs/stk-4.4.3/include/OnePole.h"; sourceTree = "<group>"; };
+		007F6F3D1546EB7F00E9325D /* SineWave.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SineWave.h; path = "../../../../../../../SDKs/stk-4.4.3/include/SineWave.h"; sourceTree = "<group>"; };
+		007F6F3E1546EB7F00E9325D /* Stk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Stk.h; path = "../../../../../../../SDKs/stk-4.4.3/include/Stk.h"; sourceTree = "<group>"; };
+		007F6F3F1546EB9C00E9325D /* ADSR.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ADSR.cpp; path = "../../../../../../../SDKs/stk-4.4.3/src/ADSR.cpp"; sourceTree = "<group>"; };
+		007F6F401546EB9C00E9325D /* Blit.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Blit.cpp; path = "../../../../../../../SDKs/stk-4.4.3/src/Blit.cpp"; sourceTree = "<group>"; };
+		007F6F411546EB9C00E9325D /* BlitSaw.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BlitSaw.cpp; path = "../../../../../../../SDKs/stk-4.4.3/src/BlitSaw.cpp"; sourceTree = "<group>"; };
+		007F6F421546EB9C00E9325D /* BlitSquare.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BlitSquare.cpp; path = "../../../../../../../SDKs/stk-4.4.3/src/BlitSquare.cpp"; sourceTree = "<group>"; };
+		007F6F431546EB9C00E9325D /* Modulate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Modulate.cpp; path = "../../../../../../../SDKs/stk-4.4.3/src/Modulate.cpp"; sourceTree = "<group>"; };
+		007F6F441546EB9C00E9325D /* Noise.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Noise.cpp; path = "../../../../../../../SDKs/stk-4.4.3/src/Noise.cpp"; sourceTree = "<group>"; };
+		007F6F451546EB9C00E9325D /* OnePole.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = OnePole.cpp; path = "../../../../../../../SDKs/stk-4.4.3/src/OnePole.cpp"; sourceTree = "<group>"; };
+		007F6F461546EB9C00E9325D /* SineWave.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SineWave.cpp; path = "../../../../../../../SDKs/stk-4.4.3/src/SineWave.cpp"; sourceTree = "<group>"; };
+		007F6F471546EB9C00E9325D /* Stk.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Stk.cpp; path = "../../../../../../../SDKs/stk-4.4.3/src/Stk.cpp"; sourceTree = "<group>"; };
+		007F6F511546EBB300E9325D /* Filter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Filter.h; path = "../../../../../../../SDKs/stk-4.4.3/include/Filter.h"; sourceTree = "<group>"; };
+		007F6F521546EBB300E9325D /* Generator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Generator.h; path = "../../../../../../../SDKs/stk-4.4.3/include/Generator.h"; sourceTree = "<group>"; };
 		00906827153A99990014C723 /* vstSynthFilter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = vstSynthFilter.cpp; path = ../../Source/vstSynthFilter.cpp; sourceTree = "<group>"; };
-		00906828153A99990014C723 /* vstSynthFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; name = vstSynthFilter.h; path = ../../Source/vstSynthFilter.h; sourceTree = "<group>"; };
+		00906828153A99990014C723 /* vstSynthFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = vstSynthFilter.h; path = ../../Source/vstSynthFilter.h; sourceTree = "<group>"; };
 		00BCBF42127889C17622FFC4 /* juce_Component.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_Component.cpp; path = ../../JuceLibraryCode/modules/juce_gui_basics/components/juce_Component.cpp; sourceTree = SOURCE_ROOT; };
 		00BE616699C915981C048C68 /* juce_BorderSize.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_BorderSize.h; path = ../../JuceLibraryCode/modules/juce_graphics/geometry/juce_BorderSize.h; sourceTree = SOURCE_ROOT; };
 		00FB9348FC867724118F1834 /* juce_StretchableLayoutResizerBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_StretchableLayoutResizerBar.h; path = ../../JuceLibraryCode/modules/juce_gui_basics/layout/juce_StretchableLayoutResizerBar.h; sourceTree = SOURCE_ROOT; };
@@ -140,7 +140,7 @@
 		07E594797B7C067D3E72F600 /* juce_ScopedPointer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_ScopedPointer.h; path = ../../JuceLibraryCode/modules/juce_core/memory/juce_ScopedPointer.h; sourceTree = SOURCE_ROOT; };
 		0802A1E8B2EDF34DE279A473 /* juce_FileOutputStream.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_FileOutputStream.cpp; path = ../../JuceLibraryCode/modules/juce_core/files/juce_FileOutputStream.cpp; sourceTree = SOURCE_ROOT; };
 		086308E81750903253F7FB4E /* juce_Colour.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_Colour.h; path = ../../JuceLibraryCode/modules/juce_graphics/colour/juce_Colour.h; sourceTree = SOURCE_ROOT; };
-		08BB2DB768B5C4866C7D7E0A /* vstSynthProcessor.h */ = {isa = PBXFileReference; name = vstSynthProcessor.h; path = ../../Source/vstSynthProcessor.h; sourceTree = SOURCE_ROOT; };
+		08BB2DB768B5C4866C7D7E0A /* vstSynthProcessor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = vstSynthProcessor.h; path = ../../Source/vstSynthProcessor.h; sourceTree = SOURCE_ROOT; };
 		09252036B2F4DB1EE0482D0A /* juce_MixerAudioSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_MixerAudioSource.h; path = ../../JuceLibraryCode/modules/juce_audio_basics/sources/juce_MixerAudioSource.h; sourceTree = SOURCE_ROOT; };
 		099349DAFFA71184054F548A /* juce_FakeMouseMoveGenerator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_FakeMouseMoveGenerator.h; path = ../../JuceLibraryCode/modules/juce_audio_plugin_client/utility/juce_FakeMouseMoveGenerator.h; sourceTree = SOURCE_ROOT; };
 		09BC7B81E7C8B5A6C40251A4 /* juce_Memory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_Memory.h; path = ../../JuceLibraryCode/modules/juce_core/memory/juce_Memory.h; sourceTree = SOURCE_ROOT; };
@@ -607,7 +607,7 @@
 		8814EDC16ABA4B39989B5FA1 /* juce_CaretComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_CaretComponent.h; path = ../../JuceLibraryCode/modules/juce_gui_basics/keyboard/juce_CaretComponent.h; sourceTree = SOURCE_ROOT; };
 		882C01FED6FFA365C30BDE37 /* juce_DeletedAtShutdown.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_DeletedAtShutdown.h; path = ../../JuceLibraryCode/modules/juce_events/messages/juce_DeletedAtShutdown.h; sourceTree = SOURCE_ROOT; };
 		883259047057D1E3C936BD42 /* juce_module_info */ = {isa = PBXFileReference; lastKnownFileType = text; name = juce_module_info; path = ../../JuceLibraryCode/modules/juce_gui_extra/juce_module_info; sourceTree = SOURCE_ROOT; };
-		888F0EB48CB9B8AB01B1A270 /* vstSynthEditor.h */ = {isa = PBXFileReference; name = vstSynthEditor.h; path = ../../Source/vstSynthEditor.h; sourceTree = SOURCE_ROOT; };
+		888F0EB48CB9B8AB01B1A270 /* vstSynthEditor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = vstSynthEditor.h; path = ../../Source/vstSynthEditor.h; sourceTree = SOURCE_ROOT; };
 		897E71823A212016309FE5EE /* juce_SystemTrayIconComponent.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_SystemTrayIconComponent.cpp; path = ../../JuceLibraryCode/modules/juce_gui_extra/misc/juce_SystemTrayIconComponent.cpp; sourceTree = SOURCE_ROOT; };
 		8992A1D91C3A5D806EF022DA /* juce_MemoryOutputStream.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_MemoryOutputStream.cpp; path = ../../JuceLibraryCode/modules/juce_core/streams/juce_MemoryOutputStream.cpp; sourceTree = SOURCE_ROOT; };
 		899772B3FC5D65FF3DF5DDB3 /* juce_Sampler.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_Sampler.cpp; path = ../../JuceLibraryCode/modules/juce_audio_formats/sampler/juce_Sampler.cpp; sourceTree = SOURCE_ROOT; };
@@ -1044,26 +1044,26 @@
 		006065281524E92B00750D65 /* STK Files */ = {
 			isa = PBXGroup;
 			children = (
-				008E9A48152773E9007B1C66 /* ADSR.cpp */,
-				006065301524E97100750D65 /* Blit.cpp */,
-				006065311524E97100750D65 /* BlitSaw.cpp */,
-				006065321524E97100750D65 /* BlitSquare.cpp */,
-				0082C6D01545A093004ED9BA /* Modulate.cpp */,
-				008E9A4B152773E9007B1C66 /* Noise.cpp */,
-				0082C6D21545A0B9004ED9BA /* OnePole.cpp */,
-				006065331524E97100750D65 /* SineWave.cpp */,
-				006065341524E97100750D65 /* Stk.cpp */,
-				008E9A42152772C0007B1C66 /* ADSR.h */,
-				0060652A1524E95B00750D65 /* Blit.h */,
-				0060652B1524E95B00750D65 /* BlitSaw.h */,
-				0060652C1524E95B00750D65 /* BlitSquare.h */,
-				0082C6D41545A0C5004ED9BA /* Filter.h */,
-				0060652D1524E95B00750D65 /* Generator.h */,
-				002D6325153E501700CA15F7 /* Modulate.h */,
-				008E9A451527734B007B1C66 /* Noise.h */,
-				0082C6D51545A0C5004ED9BA /* OnePole.h */,
-				0060652E1524E95B00750D65 /* SineWave.h */,
-				0060652F1524E95B00750D65 /* Stk.h */,
+				007F6F3F1546EB9C00E9325D /* ADSR.cpp */,
+				007F6F361546EB6B00E9325D /* ADSR.h */,
+				007F6F401546EB9C00E9325D /* Blit.cpp */,
+				007F6F371546EB6B00E9325D /* Blit.h */,
+				007F6F411546EB9C00E9325D /* BlitSaw.cpp */,
+				007F6F381546EB6B00E9325D /* BlitSaw.h */,
+				007F6F421546EB9C00E9325D /* BlitSquare.cpp */,
+				007F6F391546EB6B00E9325D /* BlitSquare.h */,
+				007F6F511546EBB300E9325D /* Filter.h */,
+				007F6F521546EBB300E9325D /* Generator.h */,
+				007F6F431546EB9C00E9325D /* Modulate.cpp */,
+				007F6F3A1546EB6B00E9325D /* Modulate.h */,
+				007F6F441546EB9C00E9325D /* Noise.cpp */,
+				007F6F3B1546EB7F00E9325D /* Noise.h */,
+				007F6F451546EB9C00E9325D /* OnePole.cpp */,
+				007F6F3C1546EB7F00E9325D /* OnePole.h */,
+				007F6F461546EB9C00E9325D /* SineWave.cpp */,
+				007F6F3D1546EB7F00E9325D /* SineWave.h */,
+				007F6F471546EB9C00E9325D /* Stk.cpp */,
+				007F6F3E1546EB7F00E9325D /* Stk.h */,
 			);
 			name = "STK Files";
 			sourceTree = "<group>";
@@ -2130,7 +2130,7 @@
 		907E15AC883C254828BDBDE2 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				C5442FE9B772E057640EA366 /* additiveSynth */,
+				C5442FE9B772E057640EA366 /* vstSynth */,
 				5A547527887135ED6878A324 /* Juce Modules */,
 				6139BF8A4456E0DC4B6EA035 /* Juce Library Code */,
 				D58E04391812FBAB3AC693A4 /* Resources */,
@@ -2462,13 +2462,13 @@
 			name = utility;
 			sourceTree = "<group>";
 		};
-		C5442FE9B772E057640EA366 /* additiveSynth */ = {
+		C5442FE9B772E057640EA366 /* vstSynth */ = {
 			isa = PBXGroup;
 			children = (
 				006065281524E92B00750D65 /* STK Files */,
 				76E84478B429FE3C5684BE47 /* Source */,
 			);
-			name = additiveSynth;
+			name = vstSynth;
 			sourceTree = "<group>";
 		};
 		C6D23CA80107A5BDE22A62BC /* image_formats */ = {
@@ -3008,17 +3008,17 @@
 				DAE7D8DAC5C5FA2581F25235 /* juce_VST_Wrapper.cpp in Sources */,
 				B6718215EC50C56150F5DC18 /* juce_VST_Wrapper.mm in Sources */,
 				003104D215220859007E52B4 /* vstSynth.cpp in Sources */,
-				006065351524E97200750D65 /* Blit.cpp in Sources */,
-				006065361524E97200750D65 /* BlitSaw.cpp in Sources */,
-				006065371524E97200750D65 /* BlitSquare.cpp in Sources */,
-				006065381524E97200750D65 /* SineWave.cpp in Sources */,
-				006065391524E97200750D65 /* Stk.cpp in Sources */,
-				008E9A4C152773E9007B1C66 /* ADSR.cpp in Sources */,
-				008E9A4F152773E9007B1C66 /* Noise.cpp in Sources */,
 				003BC0F31530CFC3006DEEBB /* vstSynthOscillator.cpp in Sources */,
 				00906829153A99990014C723 /* vstSynthFilter.cpp in Sources */,
-				0082C6D11545A093004ED9BA /* Modulate.cpp in Sources */,
-				0082C6D31545A0B9004ED9BA /* OnePole.cpp in Sources */,
+				007F6F481546EB9C00E9325D /* ADSR.cpp in Sources */,
+				007F6F491546EB9C00E9325D /* Blit.cpp in Sources */,
+				007F6F4A1546EB9C00E9325D /* BlitSaw.cpp in Sources */,
+				007F6F4B1546EB9C00E9325D /* BlitSquare.cpp in Sources */,
+				007F6F4C1546EB9C00E9325D /* Modulate.cpp in Sources */,
+				007F6F4D1546EB9C00E9325D /* Noise.cpp in Sources */,
+				007F6F4E1546EB9C00E9325D /* OnePole.cpp in Sources */,
+				007F6F4F1546EB9C00E9325D /* SineWave.cpp in Sources */,
+				007F6F501546EB9C00E9325D /* Stk.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3048,7 +3048,7 @@
 		B1C2FF868DB77BDB37E1BA74 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				EXCLUDED_SOURCE_FILE_NAMES = "$(EXCLUDED_SOURCE_FILE_NAMES_$(CURRENT_ARCH))";
 				EXCLUDED_SOURCE_FILE_NAMES_x86_64 = "*Carbon*.cpp";
@@ -3090,7 +3090,7 @@
 		F1FE5077E050F65FD0F1DD30 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				COPY_PHASE_STRIP = NO;
 				EXCLUDED_SOURCE_FILE_NAMES = "$(EXCLUDED_SOURCE_FILE_NAMES_$(CURRENT_ARCH))";

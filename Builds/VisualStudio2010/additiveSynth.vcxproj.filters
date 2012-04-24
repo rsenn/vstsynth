@@ -1,12 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="additiveSynth">
-      <UniqueIdentifier>{38AC750C-AEFB-94B7-B3EE-5FA0F0215DD6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="additiveSynth\Source">
-      <UniqueIdentifier>{1B9AD2A6-ED37-4FA1-82BF-149928F7FC32}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Juce Modules">
       <UniqueIdentifier>{422C46B7-0467-2DB0-BF3C-16DFCAFD69AC}</UniqueIdentifier>
     </Filter>
@@ -322,14 +316,14 @@
     <Filter Include="STK Files">
       <UniqueIdentifier>{e2becbe3-aadc-45af-ad76-3f609ce40178}</UniqueIdentifier>
     </Filter>
+    <Filter Include="vstSynth">
+      <UniqueIdentifier>{38AC750C-AEFB-94B7-B3EE-5FA0F0215DD6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="vstSynth\Source">
+      <UniqueIdentifier>{1B9AD2A6-ED37-4FA1-82BF-149928F7FC32}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Source\PluginProcessor.cpp">
-      <Filter>additiveSynth\Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\PluginEditor.cpp">
-      <Filter>additiveSynth\Source</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_basics\buffers\juce_AudioDataConverters.cpp">
       <Filter>Juce Modules\juce_audio_basics\buffers</Filter>
     </ClCompile>
@@ -1434,9 +1428,6 @@
     <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_plugin_client\VST\juce_VST_Wrapper.cpp">
       <Filter>Juce Library Code</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\additiveSynth.cpp">
-      <Filter>additiveSynth\Source</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\..\..\..\..\..\..\..\..\SDKs\stk-4.4.3\src\SineWave.cpp">
       <Filter>STK Files</Filter>
     </ClCompile>
@@ -1464,17 +1455,11 @@
     <ClCompile Include="..\..\..\..\..\..\..\..\..\..\..\SDKs\stk-4.4.3\src\Iir.cpp">
       <Filter>STK Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\additiveSynthOscillator.cpp">
-      <Filter>additiveSynth\Source</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\..\..\..\..\..\..\..\..\SDKs\stk-4.4.3\src\DelayL.cpp">
       <Filter>STK Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\..\..\..\..\..\..\SDKs\stk-4.4.3\src\DelayA.cpp">
       <Filter>STK Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\additiveSynthFilter.cpp">
-      <Filter>additiveSynth\Source</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\..\..\..\..\..\..\SDKs\stk-4.4.3\src\Modulate.cpp">
       <Filter>STK Files</Filter>
@@ -1482,14 +1467,23 @@
     <ClCompile Include="..\..\..\..\..\..\..\..\..\..\..\SDKs\stk-4.4.3\src\OnePole.cpp">
       <Filter>STK Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\vstSynth.cpp">
+      <Filter>vstSynth\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\vstSynthEditor.cpp">
+      <Filter>vstSynth\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\vstSynthFilter.cpp">
+      <Filter>vstSynth\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\vstSynthOscillator.cpp">
+      <Filter>vstSynth\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\vstSynthProcessor.cpp">
+      <Filter>vstSynth\Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\Source\PluginProcessor.h">
-      <Filter>additiveSynth\Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\PluginEditor.h">
-      <Filter>additiveSynth\Source</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_basics\buffers\juce_AudioDataConverters.h">
       <Filter>Juce Modules\juce_audio_basics\buffers</Filter>
     </ClInclude>
@@ -2753,9 +2747,6 @@
     <ClInclude Include="..\..\JuceLibraryCode\JuceHeader.h">
       <Filter>Juce Library Code</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\additiveSynth.h">
-      <Filter>additiveSynth\Source</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\..\..\..\..\..\..\..\..\SDKs\stk-4.4.3\include\SineWave.h">
       <Filter>STK Files</Filter>
     </ClInclude>
@@ -2790,10 +2781,7 @@
       <Filter>STK Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\StkIncludes.h">
-      <Filter>additiveSynth\Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\additiveSynthOscillator.h">
-      <Filter>additiveSynth\Source</Filter>
+      <Filter>vstSynth\Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\..\..\..\..\..\..\..\SDKs\stk-4.4.3\include\DelayL.h">
       <Filter>STK Files</Filter>
@@ -2801,14 +2789,26 @@
     <ClInclude Include="..\..\..\..\..\..\..\..\..\..\..\SDKs\stk-4.4.3\include\DelayA.h">
       <Filter>STK Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\additiveSynthFilter.h">
-      <Filter>additiveSynth\Source</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\..\..\..\..\..\..\..\..\SDKs\stk-4.4.3\include\Modulate.h">
       <Filter>STK Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\..\..\..\..\..\..\..\SDKs\stk-4.4.3\include\OnePole.h">
       <Filter>STK Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\vstSynth.h">
+      <Filter>vstSynth\Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\vstSynthEditor.h">
+      <Filter>vstSynth\Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\vstSynthFilter.h">
+      <Filter>vstSynth\Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\vstSynthOscillator.h">
+      <Filter>vstSynth\Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\vstSynthProcessor.h">
+      <Filter>vstSynth\Source</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
