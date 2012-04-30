@@ -112,9 +112,9 @@ void vstSynthVoice::startNote (const int midiNoteNumber, const float velocity, S
 
 void vstSynthVoice::stopNote (const bool allowTailOff)
 {   
-	oscillator1.noteOff(0);
-	oscillator2.noteOff(0);
-	oscillator3.noteOff(0);
+	oscillator1.noteOff(0.0001);
+	oscillator2.noteOff(0.0001);
+	oscillator3.noteOff(0.0001);
 	envelope.keyOff();
     clearCurrentNote();
 }

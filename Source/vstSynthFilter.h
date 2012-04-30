@@ -37,13 +37,11 @@ public:
     
     void processSamples(float* samples, int numSamples) noexcept;
     
-    void hpeq2nd(float* samples, int numSamples) noexcept;
-    void hpeq4th(float* samples, int numSamples);
-    void resonator(float* samples, int numSamples) noexcept;
 	void reset();
     
 private:
-	void updateFilter();
+    void defineParameters(); // calculates g, g0, and epsilon
+	void updateFilter(); // calculates all coefficients
 
 	float G0;		//reference gain
 	float G;			//filter gain
@@ -53,31 +51,41 @@ private:
 	int filterType;	//0 = LP, 1 = BP, 2 = HP
 
 	float N;			//analog filter order
-    float W0;
+    float W0;       //center frequency
 	float W1;		//lower transition frequency
 	float W2;		//upper transition frequency
 	float dW;		//W2-W1
 
-	float g;			//G^(1/N)
+	float g;		//G^(1/N)
     float g0;		//G0^(1/N)
 	float phi;		//pi/6
 
     float epsilon;
-	float beta;
+	float beta;     // hpeq beta
 	float c0;		//cos(W0)
 	float s1;		//sin(phi)
 
+	float gSq;
+	float betaSq;
+	float g0Sq;
+	float c0Sq;
+
 	float D0;
+    // second order coefficients
     float b00, b01, b02;
     float a00, a01, a02;
+    // second order internal states
     float x01, x02;
     float y01, y02;
     
 	float D1;
+    // fourth order coefficients
     float b10, b11, b12, b13, b14;
     float a10, a11, a12, a13, a14;
+    // fourth order internal states
     float x11, x12, x13, x14;
     float y11, y12, y13, y14;
+    float w11, w12, w13, w14;
     
     
     float Gr;       //resonator gain
@@ -87,8 +95,10 @@ private:
     float c0r;      //resonator center freq cosine
     float Gbr;      //resonator gain at dWr
 
+    // resonator coefficients
     float b20, b21, b22;
     float a20, a21, a22;
+    // resonator internal states
     float x21, x22;
     float y21, y22;
 

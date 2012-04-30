@@ -42,46 +42,49 @@ vstSynthAudioProcessor::vstSynthAudioProcessor()
 	: delayBuffer(1,1)
 
 {
-	setParameter(osc1WaveParam, 0);
-	setParameter(osc2WaveParam, 0);
-	setParameter(osc3WaveParam, 0);
+    // Initialize all parameters
+	setParameterNotifyingHost(osc1WaveParam, 1);
+	setParameterNotifyingHost(osc2WaveParam, 1);
+	setParameterNotifyingHost(osc3WaveParam, 1);
 
-	setParameter(osc1OctaveParam, 0);
-	setParameter(osc2OctaveParam, 0);
-	setParameter(osc3OctaveParam, 0);
+	setParameterNotifyingHost(osc1OctaveParam, 0);
+	setParameterNotifyingHost(osc2OctaveParam, 0);
+	setParameterNotifyingHost(osc3OctaveParam, 0);
 
-	setParameter(osc1LevelParam, 0); //log
-	setParameter(osc2LevelParam, 0); //log
-	setParameter(osc3LevelParam, 0); //log
+	setParameterNotifyingHost(osc1LevelParam, 1);
+	setParameterNotifyingHost(osc2LevelParam, 1);
+	setParameterNotifyingHost(osc3LevelParam, 1);
 
-	setParameter(noiseParam, 0);
+	setParameterNotifyingHost(noiseParam, 0.0001);
 
-	setParameter(attackParam, 0);
-	setParameter(decayParam, 0);
-	setParameter(sustainParam, 0);
-	setParameter(releaseParam, 0);
+	setParameterNotifyingHost(attackParam, 0);
+	setParameterNotifyingHost(decayParam, 0);
+	setParameterNotifyingHost(sustainParam, 5);
+	setParameterNotifyingHost(releaseParam, 0);
 
-	setParameter(lfoDestParam, 0);
-	setParameter(lfoWaveParam, 0);
-	setParameter(lfoFreqParam, 0);
-	setParameter(lfoDevParam, 0);
+	setParameterNotifyingHost(lfoDestParam, 0);
+	setParameterNotifyingHost(lfoWaveParam, 0);
+	setParameterNotifyingHost(lfoFreqParam, 0);
+	setParameterNotifyingHost(lfoDevParam, 0);
 
-	setParameter(filterTypeParam, 1);
-	setParameter(filterCutoffParam, .25);
-	setParameter(filterResonanceParam, 1);
-	setParameter(filterGainParam, 1);
+	setParameterNotifyingHost(filterTypeParam, 0);
+	setParameterNotifyingHost(filterCutoffParam, 0.25 * PI);
+	setParameterNotifyingHost(filterResonanceParam, 1);
+	setParameterNotifyingHost(filterGainParam, 1);
 
-	setParameter(delayTimeParam, 0);
-	setParameter(delayFeedbackParam, 0); //log
-	setParameter(delayGainParam, 0); //log
+	setParameterNotifyingHost(delayTimeParam, 0);
+	setParameterNotifyingHost(delayFeedbackParam, 0.0001);
+	setParameterNotifyingHost(delayGainParam, 0.0001);
 
-	setParameter(driveParam, 1);
-	setParameter(outputGainParam, 0); //log
+	setParameterNotifyingHost(driveParam, 1);
+	setParameterNotifyingHost(outputGainParam, 1); //log
 
-	// Initialise the synth...
-	for (int i = 1; --i >= 0;)
+	// Initialise the synth. 
+	for (int numVoices = 1; --numVoices >= 0;)
 	{
-		vstSynth.addVoice (new vstSynthVoice(parameters));
+		// A reference to global parameters is passed to each
+        // voice so that it can reference them locally. 
+        vstSynth.addVoice (new vstSynthVoice(parameters));
 	}
 	vstSynth.addSound(new vstSynthSound());
 }
@@ -156,15 +159,15 @@ void vstSynthAudioProcessor::setParameter (int index, float newValue)
 	{
 		// single oscillator
 	case osc1WaveParam:          parameters[0] = newValue; break;
-	case osc1OctaveParam:        parameters[1] = newValue+1; break;
+	case osc1OctaveParam:        parameters[1] = newValue; break;
 	case osc1LevelParam:         parameters[2] = newValue; break;
 
 	case osc2WaveParam:          parameters[3] = newValue; break;
-	case osc2OctaveParam:        parameters[4] = newValue+1; break;
+	case osc2OctaveParam:        parameters[4] = newValue; break;
 	case osc2LevelParam:         parameters[5] = newValue; break;
 
 	case osc3WaveParam:          parameters[6] = newValue; break;
-	case osc3OctaveParam:        parameters[7] = newValue+1; break;
+	case osc3OctaveParam:        parameters[7] = newValue; break;
 	case osc3LevelParam:         parameters[8] = newValue; break;
 
 		// envelope
@@ -318,11 +321,14 @@ void vstSynthAudioProcessor::changeProgramName (int index, const String& newName
 //==============================================================================
 void vstSynthAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
 {
-	// Use this method as the place to do any pre-playback
-	// initialisation that you need..
-	vstSynth.setCurrentPlaybackSampleRate(sampleRate);
+    // Set sample rate for both JUCE and STK
+    vstSynth.setCurrentPlaybackSampleRate(sampleRate);
 	Stk::setSampleRate(sampleRate);
+	
+	delayBuffer.clear();
 	keyboardState.reset();
+	
+    // Initialize filter with starting parameters
 	hpeqFilter.setCoefficients(getParameter(filterTypeParam), getParameter(filterGainParam), getParameter(filterCutoffParam), getParameter(filterResonanceParam));
 }
 
@@ -335,43 +341,64 @@ void vstSynthAudioProcessor::releaseResources()
 
 void vstSynthAudioProcessor::processBlock (AudioSampleBuffer& buffer, MidiBuffer& midiMessages)
 {
-	// This is the place where you'd normally do the guts of your plugin's
-	// audio processing...
-
+    // number of samples in current buffer
 	const int numSamples = buffer.getNumSamples();
 
-	if (delayBuffer.getNumSamples() != getParameter(delayTimeParam) + numSamples)
+	
+    /* 
+     Checks to see if delay size has changed since the last block. If it has,
+     the delay buffer is resized and cleared (to prevent garbage in the output)
+     The read and write pointers are also reset to their starting positions and
+     the saved filter states are removed to reduce transients.
+     */
+    
+    // delayTimeParam controlled by vstSynthEditor::delayTimeSlider
+    if (delayBuffer.getNumSamples() != getParameter(delayTimeParam) + numSamples)
 	{
 		delayBuffer.setSize(1, getParameter(delayTimeParam) + numSamples);
 		delayBuffer.clear();
 		delayWritePtr =  delayBuffer.getSampleData(0) + (int) getParameter(delayTimeParam);
 		delayReadPtr = delayBuffer.getSampleData(0);
-		hpeqFilter.reset();
+		//hpeqFilter.reset();
 	}
 
-	keyboardState.processNextMidiBuffer(midiMessages, 0, numSamples, true);
-	vstSynth.renderNextBlock(buffer, midiMessages, 0, numSamples);
+	// Receives MIDI data from host
+    keyboardState.processNextMidiBuffer(midiMessages, 0, numSamples, true);
+	
+    // Call to vstSynthVoice::renderNextBlock where buffer is filled with raw oscillator data
+    vstSynth.renderNextBlock(buffer, midiMessages, 0, numSamples);
 
+    // Pointer to beginning of buffer
 	float* bufferPtr = buffer.getSampleData(0, 0);
 
+    // Performs tremolo (AM) if enabled, overdrive and delay operation
 	for (int currentSample = 0; currentSample < numSamples; currentSample++)
 	{
-		if (getParameter(lfoDestParam) == 2)
+		// Apply tremolo if enabled
+        if (getParameter(lfoDestParam) == 2) // Controlled by vstSynthEditor::lfoDestComboBox
 		{
-			tremolo.setVibratoRate(getParameter(lfoFreqParam));
-			tremolo.setVibratoGain(getParameter(lfoDevParam)/10);
-			*bufferPtr *= (float) (1+tremolo.tick());
+			tremolo.setVibratoRate(getParameter(lfoFreqParam)); // Controlled by vstSynthEditor::lfoFreqSlider
+			tremolo.setVibratoGain(getParameter(lfoDevParam)/10); // Controlled by vstSynthEditor::lfoDevSlider
+			*bufferPtr *= (float) (1+tremolo.tick()); // Modulate amplitude with tremolo output
 		}
 
-		*bufferPtr = tanhf(getParameter(driveParam) * *bufferPtr);
+        // Push signal through tahn to introduce nonlinear distortion
+		*bufferPtr = tanhf(getParameter(driveParam) * *bufferPtr); // Controlled by vstSynthEditor::driveSlider
 
-		if (getParameter(delayTimeParam) > 0)
+        // Process delay if enabled
+		if (getParameter(delayTimeParam) > 0) // Controlled by vstSynthEditor::delayTimeSlider
 		{
-			*bufferPtr += getParameter(delayFeedbackParam) * *delayReadPtr;
+            // Add existing delay data into buffer
+			*bufferPtr += getParameter(delayFeedbackParam) * *delayReadPtr; // Controlled by vstSynthEditor::delayFBSlider
+
+            // Save current output data into delay buffer
 			*delayWritePtr = *bufferPtr;
-			delayWritePtr++;
+			
+            // Increment pointers
+            delayWritePtr++;
 			delayReadPtr++;
 
+            // Circular buffer implementation: reset pointers to beginning of buffers when end is reached
 			if (delayReadPtr > delayBuffer.getSampleData(0) + delayBuffer.getNumSamples())
 			{
 				delayReadPtr = delayBuffer.getSampleData(0);
@@ -382,19 +409,19 @@ void vstSynthAudioProcessor::processBlock (AudioSampleBuffer& buffer, MidiBuffer
 				delayWritePtr = delayBuffer.getSampleData(0);
 			}
 		}
-
-
+        
+        // Increment pointer
 		bufferPtr++;
 	}
-
+    
+    // Send buffer to vstSynthFilter where it is replaced with filtered data
 	hpeqFilter.processSamples(buffer.getSampleData(0, 0), numSamples);
 
-	//	buffer.addFrom(0, 0, delayBuffer, 0, 0, numSamples, getParameter(delayFeedbackParam));
-	//	delayBuffer = buffer;
-
+    // All processing happens in only one channel for speed; the other channel is filled here.
 	buffer.addFrom(1, 0, buffer, 0, 0, numSamples);
 
-	buffer.applyGain(0, numSamples, getParameter(outputGainParam));
+    // Apply overall output gain to buffer before playback
+	buffer.applyGain(0, numSamples, 10 * getParameter(outputGainParam)); // Controlled by vstSynthEditor::outputGainSlider
 
 	// In case we have more outputs than inputs, we'll clear any output
 	// channels that didn't contain input data, (because these aren't

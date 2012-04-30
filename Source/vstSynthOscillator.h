@@ -50,8 +50,6 @@ CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-
-
 #include "StkIncludes.h"
 #include "../JuceLibraryCode/JuceHeader.h"
 
@@ -88,16 +86,14 @@ private:
 	float frequency;
 	int octave;
 	int waveform;
-	StkFloat gain;
-	StkFloat phase;
-	float output;
+	float gain;
+    float noiseLevel;
+	float vibratoDepth;
+	float vibratoSpeed;
 
 	SineWave sineOut;
 	BlitSaw sawOut;
 	BlitSquare squareOut;
 	Noise noise;
-
-	float vibratoDepth;
-	float vibratoSpeed;
     Modulate vibrato;
 };

@@ -122,7 +122,8 @@ vstSynthAudioProcessorEditor::vstSynthAudioProcessorEditor (vstSynthAudioProcess
     filterGroup->setColour (GroupComponent::textColourId, Colours::white);
 
     addAndMakeVisible (filterGainSlider = new Slider (L"new slider"));
-    filterGainSlider->setRange (0.0001, 10, 0.001);
+//    filterGainSlider->setRange (0, 2, 0.01);
+    filterGainSlider->setRange (-20, 20, 0.5);
     filterGainSlider->setSliderStyle (Slider::Rotary);
     filterGainSlider->setTextBoxStyle (Slider::TextBoxAbove, true, 80, 20);
     filterGainSlider->setColour (Slider::rotarySliderFillColourId, Colour (0xffc6159a));
@@ -181,7 +182,8 @@ vstSynthAudioProcessorEditor::vstSynthAudioProcessorEditor (vstSynthAudioProcess
     sustainSlider->addListener (this);
 
     addAndMakeVisible (osc1lvlSlider = new Slider (L"new slider"));
-    osc1lvlSlider->setRange (1, 10, 0.1);
+//    osc1lvlSlider->setRange (0, 2, 0.01);
+    osc1lvlSlider->setRange (-20, 20, 0.5);
     osc1lvlSlider->setSliderStyle (Slider::Rotary);
     osc1lvlSlider->setTextBoxStyle (Slider::TextBoxAbove, true, 80, 20);
     osc1lvlSlider->setColour (Slider::rotarySliderFillColourId, Colour (0xffc67e15));
@@ -197,7 +199,8 @@ vstSynthAudioProcessorEditor::vstSynthAudioProcessorEditor (vstSynthAudioProcess
     delayGroup->setColour (GroupComponent::textColourId, Colours::white);
 
     addAndMakeVisible (delayFBSlider = new Slider (L"new slider"));
-    delayFBSlider->setRange (1, 10, 0.1);
+//    delayFBSlider->setRange (0, 1, 0.01);
+    delayFBSlider->setRange (-40, 0, 0.5);
     delayFBSlider->setSliderStyle (Slider::Rotary);
     delayFBSlider->setTextBoxStyle (Slider::TextBoxAbove, true, 80, 20);
     delayFBSlider->setColour (Slider::rotarySliderFillColourId, Colour (0xffc1b115));
@@ -208,7 +211,8 @@ vstSynthAudioProcessorEditor::vstSynthAudioProcessorEditor (vstSynthAudioProcess
     delayFBSlider->addListener (this);
 
     addAndMakeVisible (delayGainSlider = new Slider (L"new slider"));
-    delayGainSlider->setRange (1, 10, 0.1);
+//    delayGainSlider->setRange (0, 1, 0.01);
+    delayGainSlider->setRange (-40, 0, 0.5);
     delayGainSlider->setSliderStyle (Slider::Rotary);
     delayGainSlider->setTextBoxStyle (Slider::TextBoxAbove, true, 80, 20);
     delayGainSlider->setColour (Slider::rotarySliderFillColourId, Colour (0xffc1b115));
@@ -256,7 +260,7 @@ vstSynthAudioProcessorEditor::vstSynthAudioProcessorEditor (vstSynthAudioProcess
     attackSlider->addListener (this);
 
     addAndMakeVisible (delayTimeSlider = new Slider (L"new slider"));
-    delayTimeSlider->setRange (0, 44100, 1);
+    delayTimeSlider->setRange (0, 1, 0.001);
     delayTimeSlider->setSliderStyle (Slider::Rotary);
     delayTimeSlider->setTextBoxStyle (Slider::TextBoxAbove, true, 80, 20);
     delayTimeSlider->setColour (Slider::rotarySliderFillColourId, Colour (0xffc1b115));
@@ -330,7 +334,8 @@ vstSynthAudioProcessorEditor::vstSynthAudioProcessorEditor (vstSynthAudioProcess
     label7->setColour (TextEditor::backgroundColourId, Colour (0x0));
 
     addAndMakeVisible (noiseSlider = new Slider (L"new slider"));
-    noiseSlider->setRange (1, 10, 0.1);
+//    noiseSlider->setRange (0, 0.01, 0.0001);
+    noiseSlider->setRange (-40, -0, 0.5);
     noiseSlider->setSliderStyle (Slider::Rotary);
     noiseSlider->setTextBoxStyle (Slider::TextBoxAbove, true, 80, 20);
     noiseSlider->setColour (Slider::rotarySliderFillColourId, Colour (0xffc61515));
@@ -341,7 +346,7 @@ vstSynthAudioProcessorEditor::vstSynthAudioProcessorEditor (vstSynthAudioProcess
     noiseSlider->addListener (this);
 
     addAndMakeVisible (driveSlider = new Slider (L"new slider"));
-    driveSlider->setRange (1, 5, 0.05);
+    driveSlider->setRange (1, 10, 0.05);
     driveSlider->setSliderStyle (Slider::Rotary);
     driveSlider->setTextBoxStyle (Slider::TextBoxAbove, true, 80, 20);
     driveSlider->setColour (Slider::rotarySliderFillColourId, Colour (0xffc61515));
@@ -352,7 +357,8 @@ vstSynthAudioProcessorEditor::vstSynthAudioProcessorEditor (vstSynthAudioProcess
     driveSlider->addListener (this);
 
     addAndMakeVisible (outputGainSlider = new Slider (L"new slider"));
-    outputGainSlider->setRange (1, 10, 0.1);
+//    outputGainSlider->setRange (0, 2, 0.01);
+    outputGainSlider->setRange (-20, 20, 0.5);
     outputGainSlider->setSliderStyle (Slider::Rotary);
     outputGainSlider->setTextBoxStyle (Slider::TextBoxAbove, true, 80, 20);
     outputGainSlider->setColour (Slider::rotarySliderFillColourId, Colour (0xffc61515));
@@ -449,7 +455,7 @@ vstSynthAudioProcessorEditor::vstSynthAudioProcessorEditor (vstSynthAudioProcess
     label25->setColour (TextEditor::backgroundColourId, Colour (0x0));
 
     addAndMakeVisible (label27 = new Label (L"new label",
-                                            L"Frequency"));
+                                            L"Speed"));
     label27->setFont (Font (15.0000f, Font::bold));
     label27->setJustificationType (Justification::centred);
     label27->setEditable (false, false, false);
@@ -458,7 +464,7 @@ vstSynthAudioProcessorEditor::vstSynthAudioProcessorEditor (vstSynthAudioProcess
     label27->setColour (TextEditor::backgroundColourId, Colour (0x0));
 
     addAndMakeVisible (label29 = new Label (L"new label",
-                                            L"Deviation"));
+                                            L"Depth"));
     label29->setFont (Font (15.0000f, Font::bold));
     label29->setJustificationType (Justification::centred);
     label29->setEditable (false, false, false);
@@ -467,7 +473,7 @@ vstSynthAudioProcessorEditor::vstSynthAudioProcessorEditor (vstSynthAudioProcess
     label29->setColour (TextEditor::backgroundColourId, Colour (0x0));
 
     addAndMakeVisible (filterFreqSlider = new Slider (L"new slider"));
-    filterFreqSlider->setRange (0.00, 0.50, 0.00001);
+    filterFreqSlider->setRange (50, 11025, 5);
     filterFreqSlider->setSliderStyle (Slider::Rotary);
     filterFreqSlider->setTextBoxStyle (Slider::TextBoxAbove, true, 80, 20);
     filterFreqSlider->setColour (Slider::rotarySliderFillColourId, Colour (0xffc6159a));
@@ -546,7 +552,8 @@ vstSynthAudioProcessorEditor::vstSynthAudioProcessorEditor (vstSynthAudioProcess
     label9->setColour (TextEditor::backgroundColourId, Colour (0x0));
 
     addAndMakeVisible (osc3lvlSlider = new Slider (L"new slider"));
-    osc3lvlSlider->setRange (1, 10, 0.1);
+//    osc3lvlSlider->setRange (0, 2, 0.01);
+    osc3lvlSlider->setRange (-20, 20, 0.5);
     osc3lvlSlider->setSliderStyle (Slider::Rotary);
     osc3lvlSlider->setTextBoxStyle (Slider::TextBoxAbove, true, 80, 20);
     osc3lvlSlider->setColour (Slider::rotarySliderFillColourId, Colour (0xffc67e15));
@@ -557,7 +564,8 @@ vstSynthAudioProcessorEditor::vstSynthAudioProcessorEditor (vstSynthAudioProcess
     osc3lvlSlider->addListener (this);
 
     addAndMakeVisible (filterResSlider = new Slider (L"new slider"));
-    filterResSlider->setRange (1, 100, 0.1);
+//    filterResSlider->setRange (1, 100, 1);
+    filterResSlider->setRange (0, 40, 1);
     filterResSlider->setSliderStyle (Slider::Rotary);
     filterResSlider->setTextBoxStyle (Slider::TextBoxAbove, true, 80, 20);
     filterResSlider->setColour (Slider::rotarySliderFillColourId, Colour (0xffc6159a));
@@ -644,7 +652,8 @@ vstSynthAudioProcessorEditor::vstSynthAudioProcessorEditor (vstSynthAudioProcess
     label16->setColour (TextEditor::backgroundColourId, Colour (0x0));
 
     addAndMakeVisible (osc2lvlSlider = new Slider (L"new slider"));
-    osc2lvlSlider->setRange (1, 10, 0.1);
+//    osc2lvlSlider->setRange (0, 2, 0.01);
+    osc2lvlSlider->setRange (-20, 20, 0.5);
     osc2lvlSlider->setSliderStyle (Slider::Rotary);
     osc2lvlSlider->setTextBoxStyle (Slider::TextBoxAbove, true, 80, 20);
     osc2lvlSlider->setColour (Slider::rotarySliderFillColourId, Colour (0xffc67e15));
@@ -731,11 +740,16 @@ vstSynthAudioProcessorEditor::vstSynthAudioProcessorEditor (vstSynthAudioProcess
 	osc2OctaveBox->setSelectedItemIndex (ourProcessor->getParameter(vstSynthAudioProcessor::osc2OctaveParam), false);
 	osc3OctaveBox->setSelectedItemIndex (ourProcessor->getParameter(vstSynthAudioProcessor::osc3OctaveParam), false);
     
-	osc1lvlSlider->setValue(pow(10, ourProcessor->getParameter(vstSynthAudioProcessor::osc1LevelParam)), false); //log
-	osc2lvlSlider->setValue(pow(10, ourProcessor->getParameter(vstSynthAudioProcessor::osc2LevelParam)), false); //log
-	osc3lvlSlider->setValue(pow(10, ourProcessor->getParameter(vstSynthAudioProcessor::osc3LevelParam)), false); //log
+	osc1lvlSlider->setValue(20 * log10(ourProcessor->getParameter(vstSynthAudioProcessor::osc1LevelParam)), false); //dB
+	osc2lvlSlider->setValue(20 * log10(ourProcessor->getParameter(vstSynthAudioProcessor::osc2LevelParam)), false); //dB
+	osc3lvlSlider->setValue(20 * log10(ourProcessor->getParameter(vstSynthAudioProcessor::osc3LevelParam)), false); //dB
     
-	noiseSlider->setValue(pow(10, ourProcessor->getParameter(vstSynthAudioProcessor::noiseParam)), false); //log
+	//osc1lvlSlider->setValue(ourProcessor->getParameter(vstSynthAudioProcessor::osc1LevelParam), false);
+	//osc2lvlSlider->setValue(ourProcessor->getParameter(vstSynthAudioProcessor::osc2LevelParam), false);
+	//osc3lvlSlider->setValue(ourProcessor->getParameter(vstSynthAudioProcessor::osc3LevelParam), false);
+    
+	noiseSlider->setValue(20 * log10(ourProcessor->getParameter(vstSynthAudioProcessor::noiseParam)), false); //dB
+	//noiseSlider->setValue(ourProcessor->getParameter(vstSynthAudioProcessor::noiseParam), false);
 
     attackSlider->setValue(ourProcessor->getParameter(vstSynthAudioProcessor::attackParam), false);
 	decaySlider->setValue(ourProcessor->getParameter(vstSynthAudioProcessor::decayParam), false);
@@ -747,17 +761,25 @@ vstSynthAudioProcessorEditor::vstSynthAudioProcessorEditor (vstSynthAudioProcess
 	lfoFreqSlider->setValue(ourProcessor->getParameter(vstSynthAudioProcessor::lfoFreqParam), false);
 	lfoDevSlider->setValue(ourProcessor->getParameter(vstSynthAudioProcessor::lfoDevParam), false);
     
-	filterTypeBox->setSelectedItemIndex (ourProcessor->getParameter(vstSynthAudioProcessor::filterTypeParam), false);
-	filterFreqSlider->setValue(ourProcessor->getParameter(vstSynthAudioProcessor::filterCutoffParam), false);
-	filterResSlider->setValue(ourProcessor->getParameter(vstSynthAudioProcessor::filterResonanceParam), false);
-	filterGainSlider->setValue(ourProcessor->getParameter(vstSynthAudioProcessor::filterGainParam), false);
+	float sampleRate = getProcessor()->getSampleRate();
     
-	delayTimeSlider->setValue(ourProcessor->getParameter(vstSynthAudioProcessor::delayTimeParam), false);
-	delayFBSlider->setValue(pow(10, ourProcessor->getParameter(vstSynthAudioProcessor::delayFeedbackParam)), false); //log
-	delayGainSlider->setValue(pow(10, ourProcessor->getParameter(vstSynthAudioProcessor::delayGainParam)), false); //log
+	filterFreqSlider->setValue(sampleRate / (2 * PI) * ourProcessor->getParameter(vstSynthAudioProcessor::filterCutoffParam), false);
+	filterTypeBox->setSelectedItemIndex (ourProcessor->getParameter(vstSynthAudioProcessor::filterTypeParam), false);
+	filterResSlider->setValue(20 * log10(ourProcessor->getParameter(vstSynthAudioProcessor::filterResonanceParam)), false); //dB
+	filterGainSlider->setValue(20 * log10(ourProcessor->getParameter(vstSynthAudioProcessor::filterGainParam)), false); //dB
+//	filterResSlider->setValue(ourProcessor->getParameter(vstSynthAudioProcessor::filterResonanceParam), false);
+//	filterGainSlider->setValue(ourProcessor->getParameter(vstSynthAudioProcessor::filterGainParam), false);
+    
+	delayTimeSlider->setValue(ourProcessor->getParameter(vstSynthAudioProcessor::delayTimeParam)/sampleRate, false);
+	delayFBSlider->setValue(20 * log10(ourProcessor->getParameter(vstSynthAudioProcessor::delayFeedbackParam)), false); //dB
+	delayGainSlider->setValue(20 * log10(ourProcessor->getParameter(vstSynthAudioProcessor::delayGainParam)), false); //dB
+//	delayFBSlider->setValue(ourProcessor->getParameter(vstSynthAudioProcessor::delayFeedbackParam), false);
+//	delayGainSlider->setValue(ourProcessor->getParameter(vstSynthAudioProcessor::delayGainParam), false);
     
 	driveSlider->setValue(ourProcessor->getParameter(vstSynthAudioProcessor::driveParam), false);
-	outputGainSlider->setValue(pow(10, ourProcessor->getParameter(vstSynthAudioProcessor::outputGainParam)), false); //log
+	
+    outputGainSlider->setValue(20 * log10(ourProcessor->getParameter(vstSynthAudioProcessor::outputGainParam)), false); //dB
+//	outputGainSlider->setValue(ourProcessor->getParameter(vstSynthAudioProcessor::outputGainParam), false);
 
     //[/Constructor]
 }
@@ -953,23 +975,6 @@ void vstSynthAudioProcessorEditor::resized()
     //[/UserResized]
 }
 
-//void vstSynthAudioProcessorEditor::timerCallback()
-//{
-//	vstSynthAudioProcessor* ourProcessor = getProcessor();
-//
-//	osc1WaveBox->setSelectedItemIndex (ourProcessor->osc1Wave, false);
-//	osc2WaveBox->setSelectedItemIndex (ourProcessor->osc2Wave, false);
-//	osc3WaveBox->setSelectedItemIndex (ourProcessor->osc3Wave, false);
-//
-//	osc1OctaveBox->setSelectedItemIndex (ourProcessor->osc1Octave, false);
-//	osc2OctaveBox->setSelectedItemIndex (ourProcessor->osc2Octave, false);
-//	osc3OctaveBox->setSelectedItemIndex (ourProcessor->osc3Octave, false);
-//
-//	osc1lvlSlider->setValue (ourProcessor->osc1Level, false);
-//	osc2lvlSlider->setValue (ourProcessor->osc2Level, false);
-//	osc3lvlSlider->setValue (ourProcessor->osc3Level, false);
-//}
-
 void vstSynthAudioProcessorEditor::sliderValueChanged (Slider* sliderThatWasMoved)
 {
     //[UsersliderValueChanged_Pre]
@@ -979,19 +984,22 @@ void vstSynthAudioProcessorEditor::sliderValueChanged (Slider* sliderThatWasMove
     if (sliderThatWasMoved == osc1lvlSlider)
     {
         //[UserSliderCode_osc1lvlSlider] -- add your slider handling code here..
-		getProcessor()->setParameterNotifyingHost (vstSynthAudioProcessor::osc1LevelParam, (float) log10(osc1lvlSlider->getValue()));
+		getProcessor()->setParameterNotifyingHost (vstSynthAudioProcessor::osc1LevelParam, (float) pow(10, 0.05 * osc1lvlSlider->getValue()));
+//		getProcessor()->setParameterNotifyingHost (vstSynthAudioProcessor::osc1LevelParam, (float) osc1lvlSlider->getValue());
         //[/UserSliderCode_osc1lvlSlider]
     }
     else if (sliderThatWasMoved == osc2lvlSlider)
     {
         //[UserSliderCode_osc2lvlSlider] -- add your slider handling code here..
-		getProcessor()->setParameterNotifyingHost (vstSynthAudioProcessor::osc2LevelParam, (float) log10(osc2lvlSlider->getValue()));
+		getProcessor()->setParameterNotifyingHost (vstSynthAudioProcessor::osc2LevelParam, (float) pow(10, 0.05 * osc2lvlSlider->getValue()));
+//		getProcessor()->setParameterNotifyingHost (vstSynthAudioProcessor::osc2LevelParam, (float) osc2lvlSlider->getValue());
         //[/UserSliderCode_osc2lvlSlider]
     }
     else if (sliderThatWasMoved == osc3lvlSlider)
     {
         //[UserSliderCode_osc3lvlSlider] -- add your slider handling code here..
-		getProcessor()->setParameterNotifyingHost (vstSynthAudioProcessor::osc3LevelParam, (float) log10(osc3lvlSlider->getValue()));
+		getProcessor()->setParameterNotifyingHost (vstSynthAudioProcessor::osc3LevelParam, (float) pow(10, 0.05 * osc3lvlSlider->getValue()));
+//		getProcessor()->setParameterNotifyingHost (vstSynthAudioProcessor::osc3LevelParam, (float) osc3lvlSlider->getValue());
         //[/UserSliderCode_osc3lvlSlider]
     }
     
@@ -1013,7 +1021,8 @@ void vstSynthAudioProcessorEditor::sliderValueChanged (Slider* sliderThatWasMove
     else if (sliderThatWasMoved == noiseSlider) 
     {
         //[UserSliderCode_noiseSlider] -- add your slider handling code here..
-		getProcessor()->setParameterNotifyingHost (vstSynthAudioProcessor::noiseParam, 0.001 * log10((float) noiseSlider->getValue()));
+		getProcessor()->setParameterNotifyingHost (vstSynthAudioProcessor::noiseParam, (float) pow(10, 0.05 * noiseSlider->getValue()));
+//		getProcessor()->setParameterNotifyingHost (vstSynthAudioProcessor::noiseParam, (float) noiseSlider->getValue());
         //[/UserSliderCode_noiseSlider]
     }
     
@@ -1047,21 +1056,26 @@ void vstSynthAudioProcessorEditor::sliderValueChanged (Slider* sliderThatWasMove
     else if (sliderThatWasMoved == filterGainSlider)
     {
         //[UserSliderCode_filterGainSlider] -- add your slider handling code here..
-		getProcessor()->setParameterNotifyingHost (vstSynthAudioProcessor::filterGainParam, (float) filterGainSlider->getValue());
+		getProcessor()->setParameterNotifyingHost (vstSynthAudioProcessor::filterGainParam, (float) pow(10, 0.05 * filterGainSlider->getValue()));
+//		getProcessor()->setParameterNotifyingHost (vstSynthAudioProcessor::filterGainParam, (float) filterGainSlider->getValue());
 		getProcessor()->hpeqFilter.setGain(getProcessor()->getParameter(vstSynthAudioProcessor::filterGainParam));
         //[/UserSliderCode_filterGainSlider]
     }
     else if (sliderThatWasMoved == filterFreqSlider)
     {
         //[UserSliderCode_filterFreqSlider] -- add your slider handling code here..
-        getProcessor()->setParameterNotifyingHost (vstSynthAudioProcessor::filterCutoffParam, (float) filterFreqSlider->getValue());
-		getProcessor()->hpeqFilter.setFrequency(getProcessor()->getParameter(vstSynthAudioProcessor::filterCutoffParam));
+		float sampleRate = getProcessor()->getSampleRate();
+        // Convert from Hz to rads/sample
+        float radsPerSample = 2 * PI * (float) filterFreqSlider->getValue()/sampleRate;
+        getProcessor()->setParameterNotifyingHost (vstSynthAudioProcessor::filterCutoffParam, radsPerSample);
+        getProcessor()->hpeqFilter.setFrequency(getProcessor()->getParameter(vstSynthAudioProcessor::filterCutoffParam));
         //[/UserSliderCode_filterFreqSlider]
     }
     else if (sliderThatWasMoved == filterResSlider)
     {
         //[UserSliderCode_filterResSlider] -- add your slider handling code here..
-		getProcessor()->setParameterNotifyingHost (vstSynthAudioProcessor::filterResonanceParam, (float) filterResSlider->getValue());
+		getProcessor()->setParameterNotifyingHost (vstSynthAudioProcessor::filterResonanceParam, (float) pow(10, 0.05 * filterResSlider->getValue()));
+//		getProcessor()->setParameterNotifyingHost (vstSynthAudioProcessor::filterResonanceParam, (float) filterResSlider->getValue());
         getProcessor()->hpeqFilter.setResonance(getProcessor()->getParameter(vstSynthAudioProcessor::filterResonanceParam));
         //[/UserSliderCode_filterResSlider]
     }
@@ -1070,20 +1084,23 @@ void vstSynthAudioProcessorEditor::sliderValueChanged (Slider* sliderThatWasMove
     else if (sliderThatWasMoved == delayFBSlider)
     {
         //[UserSliderCode_delayFBSlider] -- add your slider handling code here..
-		getProcessor()->setParameterNotifyingHost (vstSynthAudioProcessor::delayFeedbackParam, (float) log10(delayFBSlider->getValue()));
+		getProcessor()->setParameterNotifyingHost (vstSynthAudioProcessor::delayFeedbackParam, (float) pow(10, 0.05 * delayFBSlider->getValue()));
+//		getProcessor()->setParameterNotifyingHost (vstSynthAudioProcessor::delayFeedbackParam, (float) delayFBSlider->getValue());
         //[/UserSliderCode_delayFBSlider]
     }
     else if (sliderThatWasMoved == delayGainSlider)
     {
         //[UserSliderCode_delayGainSlider] -- add your slider handling code here..
-		getProcessor()->setParameterNotifyingHost (vstSynthAudioProcessor::delayGainParam, (float) log10(delayGainSlider->getValue()));
+		getProcessor()->setParameterNotifyingHost (vstSynthAudioProcessor::delayGainParam, (float) pow(10, 0.05 * delayGainSlider->getValue()));
+//		getProcessor()->setParameterNotifyingHost (vstSynthAudioProcessor::delayGainParam, (float) delayGainSlider->getValue());
         //[/UserSliderCode_delayGainSlider]
     }
     
 	else if (sliderThatWasMoved == delayTimeSlider)
     {
-        //[UserSliderCode_delayTimeSlider] -- add your slider handling code here..
-		getProcessor()->setParameterNotifyingHost (vstSynthAudioProcessor::delayTimeParam, (float) delayTimeSlider->getValue());
+		//[UserSliderCode_delayTimeSlider] -- add your slider handling code here..
+		float sampleRate = getProcessor()->getSampleRate();
+		getProcessor()->setParameterNotifyingHost (vstSynthAudioProcessor::delayTimeParam, floor(sampleRate * (float) delayTimeSlider->getValue()));
         //[/UserSliderCode_delayTimeSlider]
     }
     
@@ -1097,7 +1114,8 @@ void vstSynthAudioProcessorEditor::sliderValueChanged (Slider* sliderThatWasMove
     else if (sliderThatWasMoved == outputGainSlider)
     {
         //[UserSliderCode_outputGainSlider] -- add your slider handling code here..
-		getProcessor()->setParameterNotifyingHost (vstSynthAudioProcessor::outputGainParam, log10((float) outputGainSlider->getValue()));
+		getProcessor()->setParameterNotifyingHost (vstSynthAudioProcessor::outputGainParam, (float) pow(10, 0.05 * outputGainSlider->getValue()));
+//		getProcessor()->setParameterNotifyingHost (vstSynthAudioProcessor::outputGainParam, (float) outputGainSlider->getValue());
         //[/UserSliderCode_outputGainSlider]
     }
     

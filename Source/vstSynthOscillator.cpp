@@ -50,16 +50,23 @@ CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
+/*
+ This class is used to generate the raw waveforms used by the synth. 
+ Waveforms are generated using the STK SineWave, BlitSquare and BlitSaw
+ classes.
+*/
+
+
 #include "vstSynthOscillator.h"
 
 vstSynthOscillator::vstSynthOscillator()
 {
-	frequency = 220;
+	// Initial parameters
+    frequency = 220;
 	octave = 1;
 	waveform = 0;
 	gain = 0;
-	phase = 0;
-	output = 0;
+    noiseLevel = 0;
 }
 
 vstSynthOscillator::~vstSynthOscillator()
@@ -69,7 +76,7 @@ vstSynthOscillator::~vstSynthOscillator()
 
 void vstSynthOscillator::setFrequency(StkFloat newFrequency)
 {
-    frequency = newFrequency;
+    frequency = newFrequency; // Controlled by MIDI key number
 }
 
 float vstSynthOscillator::getFrequency()
@@ -79,7 +86,7 @@ float vstSynthOscillator::getFrequency()
 
 void vstSynthOscillator::setOctave(int newOctave)
 {
-	this->octave = 1<<newOctave;
+	this->octave = 1<<newOctave; // Controlled by vstSynthEditor::oscXOctaveSlider
 }
 
 int vstSynthOscillator::getOctave()
@@ -89,7 +96,7 @@ int vstSynthOscillator::getOctave()
 
 void vstSynthOscillator::setGain(float newGain)
 {
-	this->gain = newGain;
+    this->gain = newGain; // Controlled by vstSynthEditor::oscXLevelSlider
 }
 
 float vstSynthOscillator::getGain()
@@ -99,7 +106,7 @@ float vstSynthOscillator::getGain()
 
 void vstSynthOscillator::setWaveform(int newWaveform)
 {
-	this->waveform = newWaveform;
+	this->waveform = newWaveform; // Controlled by vstSynthEditor::oscXWaveComboBox
 }
 
 int vstSynthOscillator::getWaveform()
@@ -107,6 +114,7 @@ int vstSynthOscillator::getWaveform()
 	return this->waveform;
 }
 
+// Allows for setting of all parameters in one command. Called on by vstSynth on MIDI note on
 void vstSynthOscillator::noteOn(float newFrequency, int newOctave, float newGain, int newWaveform)
 {
 	this->setWaveform(newWaveform);
@@ -115,6 +123,7 @@ void vstSynthOscillator::noteOn(float newFrequency, int newOctave, float newGain
 	this->setGain(newGain);
 }
 
+// Checks current settings against any potential changes and updates as necessary
 void vstSynthOscillator::update(int newOctave, float newGain, int newWaveform)
 {
     if (newOctave != this->getOctave())
@@ -131,14 +140,16 @@ void vstSynthOscillator::update(int newOctave, float newGain, int newWaveform)
 	}
 }
 
+// Silences output after MIDI key release signal received
 void vstSynthOscillator::noteOff(float newGain)
 {
 	this->setGain(newGain);
 }
 
+// Generate a single output of the appropriate waveform.
 StkFloat vstSynthOscillator::tick()
 {
-	switch (waveform)
+	switch (waveform) 
 	{
         case 0: 
 		{
@@ -159,51 +170,78 @@ StkFloat vstSynthOscillator::tick()
 	}
 }
 
+// Fills an AudioSampleBuffer with the oscillators output and applies vibrato effect if enabled.
 void vstSynthOscillator::fillBuffer(AudioSampleBuffer& buffer, int startSample, int numSamples, ADSR* envelope, float noiseGain, float lfoFreq, float lfoDev, bool vibratoOn)
+/*
+ buffer
+ startSample
+ numSamples
+ envelope - reference to ADSR envelope generator from calling vstSynthVoice
+ noiseGain - level of noise generator
+ lfoFreq - used to set vibratoSpeed
+ lfoDev - used to set vibratoDepth
+ vibratoOn - boolean set by caller to enable/disable vibrato
+ */
+
 {
-	float* bufferPtr = buffer.getSampleData(0, startSample);
+    // Pointer to buffer
+    float* bufferPtr = buffer.getSampleData(0, startSample);
     
+    // Updates vibrato parameters if enabled
 	if (vibratoOn)
     {
-        if (vibratoSpeed != lfoFreq)
+        if (vibratoSpeed != lfoFreq) // Controlled by vstSynthEditor::lfoFreqSlider
         {
             vibratoSpeed = lfoFreq;
             vibrato.setVibratoRate(vibratoSpeed);
         }
         
-        if (vibratoDepth != lfoDev)
+        if (vibratoDepth != lfoDev) // Controlled by vstSynthEditor::lfoDevSlider
         {
             vibratoDepth = lfoDev;
             vibrato.setVibratoGain(vibratoDepth);
         }    
     }
+    // Reset parameters to 0 when disabled
     else
     {
         vibratoSpeed = 0;
         vibratoDepth = 0;
     }
     
+    if (noiseGain <= 0.01)
+    {
+        noiseLevel = 0;
+    }
+    else
+    {
+        noiseLevel = 0.01 * noiseGain;
+    }
+    
+    /*
+     Fills buffer with output from generators with appropriate envelope applied. 
+     Noise is also added to each oscillator to allow for proper enveloping with each key press/release.
+     */
     for (int currentSample = 0; currentSample < numSamples; currentSample++)
 	{
-
         switch (waveform)
 		{
-            case 0: 
+            case 0: //Sine
 			{
-                this->sineOut.setFrequency(octave * (frequency + vibrato.tick()));
-				bufferPtr[currentSample] += (float) (envelope->tick() * (noiseGain * noise.tick() + this->getGain() * this->sineOut.tick()));
+                sineOut.setFrequency(octave * (frequency + vibrato.tick()));
+				bufferPtr[currentSample] += (float) (envelope->tick() * (noiseLevel * noise.tick() + gain * sineOut.tick()));
 				break;
 			}
-            case 1:
+            case 1: //Saw
 			{
-                this->sawOut.setFrequency(octave * (frequency + vibrato.tick()));
-				bufferPtr[currentSample] += (float) (envelope->tick() * (noiseGain * noise.tick() + this->getGain() * this->sawOut.tick()));
+                sawOut.setFrequency(octave * (frequency + vibrato.tick()));
+				bufferPtr[currentSample] += (float) (envelope->tick() * (noiseLevel * noise.tick() + gain * sawOut.tick()));
 				break;
 			}
-            case 2:
+            case 2: //Square
 			{
-                this->squareOut.setFrequency(octave * (frequency + vibrato.tick()));
-				bufferPtr[currentSample] += (float) (envelope->tick() * (noiseGain * noise.tick() + this->getGain() * this->squareOut.tick()));
+                squareOut.setFrequency(octave * (frequency + vibrato.tick()));
+				bufferPtr[currentSample] += (float) (envelope->tick() * (noiseLevel * noise.tick() + gain * squareOut.tick()));
 				break;
 			}
             default:

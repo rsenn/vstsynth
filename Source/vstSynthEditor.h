@@ -42,7 +42,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 #define __JUCER_HEADER_vstSynthAUDIOPROCESSOREDITOR_PLUGINEDITOR_11520947__
 
 //[Headers]     -- You can add your own extra header files here --
-//#include "../JuceLibraryCode/JuceHeader.h"
+#include "../JuceLibraryCode/JuceHeader.h"
 #include "vstSynthProcessor.h"
 //[/Headers]
 
